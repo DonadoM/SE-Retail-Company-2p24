@@ -36,7 +36,7 @@ export default function LoginComponent() {
 
       if (res?.error) setError(res.error);
       if (res?.ok) router.push("/dashboard/store");
-    } catch (err) {
+    } catch  {
       setError("Ocurrió un error al iniciar sesión.");
     }
   };
