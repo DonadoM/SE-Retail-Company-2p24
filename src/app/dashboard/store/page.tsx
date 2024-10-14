@@ -36,7 +36,7 @@ export default function LandingPage() {
         {/* Featured Categories */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-stone-900">
+            <h2 className="w-64 mx-auto text-3xl text-white text-center font-bold mb-12 bg-gray-800 rounded-full hover:bg-gray-700 transition duration-300">
               Featured Categories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -68,17 +68,21 @@ export default function LandingPage() {
 
         {/* New Arrivals */}
         <section className="py-16 bg-gray-100">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-stone-950">
+          <div className="container mx-auto px-4 ">
+            <h2 className="w-64 mx-auto text-3xl text-white text-center font-bold mb-12 bg-gray-800 rounded-full hover:bg-gray-700 transition duration-300">
               New Arrivals
             </h2>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { id: 1, img: "/sneakers.jpg" },
-                { id: 2, img: "/tshirt.jpg" },
-                { id: 3, img: "/jeans.jpg" },
-                { id: 4, img: "/jacket.jpg" },
+                {
+                  id: 1,
+                  img: "/sneakers.jpg",
+                  name: "Sneakers",
+                  price: "$79.99",
+                },
+                { id: 2, img: "/tshirt.jpg", name: "T-Shirt", price: "$19.99" },
+                { id: 3, img: "/jeans.jpg", name: "Jeans", price: "$49.99" },
+                { id: 4, img: "/jacket.jpg", name: "Jacket", price: "$99.99" },
               ].map((item) => (
                 <div
                   key={item.id}
@@ -92,8 +96,10 @@ export default function LandingPage() {
                     className="w-full h-64 object-cover"
                   />
                   <div className="p-4">
-                    <h3 className="font-semibold text-lg mb-2">Product Name</h3>
-                    <p className="text-gray-600 mb-2">$99.99</p>
+                    <h3 className="font-semibold text-lg mb-2 text-stone-950">
+                      {item.name}
+                    </h3>
+                    <p className="text-gray-600 mb-2">{item.price}</p>
                     <button className="w-full bg-gray-800 text-white py-2 rounded-full hover:bg-gray-700 transition duration-300">
                       Add to Cart
                     </button>
@@ -101,7 +107,7 @@ export default function LandingPage() {
                 </div>
               ))}
             </div>
-
+            <div className="text-center mt-12"></div>
             <div className="text-center mt-12">
               <Link
                 href="/new-arrivals"
