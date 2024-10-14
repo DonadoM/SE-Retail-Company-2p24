@@ -1,5 +1,4 @@
 import Providers from "./Providers";
-import Navbar from "@/app/components/Navbar";
 import "./globals.css";
 
 export const metadata = {
@@ -16,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="min-h-screen">{children}</div>
         </Providers>
       </body>

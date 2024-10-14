@@ -2,9 +2,11 @@
 
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function ProfilePage() {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   if (status === "loading") {
     return (
@@ -82,6 +84,12 @@ function ProfilePage() {
           onClick={() => signOut()}
         >
           Sign Out
+        </button>
+        <button
+          onClick={() => router.push("/dashboard/store")}
+          className="w-full bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-700 transition duration-300 mt-4"
+        >
+          Ir a la tienda
         </button>
       </div>
     </div>
