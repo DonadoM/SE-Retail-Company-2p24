@@ -7,7 +7,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gray-50">
       {/* <Navbar /> */}
 
-      <main>
+      <main> 
         {/* Hero Section */}
         <section className="relative h-[70vh]">
           <Image
@@ -40,13 +40,17 @@ export default function LandingPage() {
               Featured Categories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {["Women", "Men", "Accessories"].map((category) => (
+              {[
+                { category: "Women", img: "/women.jpg" },
+                { category: "Men", img: "/men.jpg" },
+                { category: "Accessories", img: "/accesories.jpg" },
+              ].map(({ category, img }) => (
                 <div
                   key={category}
                   className="relative group overflow-hidden rounded-lg shadow-lg"
                 >
                   <Image
-                    src="/category.jpg"
+                    src={img}
                     alt={category}
                     width={600}
                     height={400}
@@ -86,7 +90,7 @@ export default function LandingPage() {
               ].map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  className="bg-white rounded-lg shadow-md overflow-hidden "
                 >
                   <Image
                     src={item.img}
