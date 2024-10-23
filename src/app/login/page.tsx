@@ -36,7 +36,7 @@ export default function LoginComponent() {
 
       if (res?.error) setError(res.error);
       if (res?.ok) router.push("/dashboard/store");
-    } catch  {
+    } catch {
       setError("Ocurrió un error al iniciar sesión.");
     }
   };
@@ -168,7 +168,7 @@ export default function LoginComponent() {
           <p className="text-center text-sm text-[#03346E]">
             ¿No tienes una cuenta?{" "}
             <a
-              href="#"
+              href="/register"
               className="font-medium text-[#03346E] hover:text-[#6EACDA]"
             >
               Regístrate aquí

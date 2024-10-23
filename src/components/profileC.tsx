@@ -1,25 +1,38 @@
-'use client'
+"use client";
 
-import { useSession, signOut } from "next-auth/react"
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { Loader2, LogOut, ShoppingBag, User, Mail, Shield, CreditCard } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import {
+  Loader2,
+  LogOut,
+  ShoppingBag,
+  User,
+  Mail,
+  Shield,
+  CreditCard,
+} from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 export default function ProfilePageComponent() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
-  const [isSigningOut, setIsSigningOut] = useState(false)
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [isSigningOut, setIsSigningOut] = useState(false);
 
   if (status === "loading") {
     return (
       <div className="flex h-screen items-center justify-center bg-[#114B5F]">
         <Loader2 className="h-12 w-12 animate-spin text-white" />
       </div>
-    )
+    );
   }
 
   if (status === "unauthenticated" || !session) {
@@ -54,20 +67,20 @@ export default function ProfilePageComponent() {
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => router.push('/login')}
+            onClick={() => router.push("/login")}
           >
             Sign In
           </Button>
         </motion.div>
       </motion.div>
-    )
+    );
   }
 
   const handleSignOut = async () => {
-    setIsSigningOut(true)
-    await signOut({ redirect: false })
-    router.push('/')
-  }
+    setIsSigningOut(true);
+    await signOut({ redirect: false });
+    router.push("/");
+  };
 
   return (
     <div className="min-h-screen bg-[#114B5F] px-4 py-8 sm:px-6 lg:px-8">
@@ -103,7 +116,10 @@ export default function ProfilePageComponent() {
               className="relative z-10 text-center"
             >
               <Avatar className="mx-auto h-24 w-24 border-4 border-white shadow-lg">
-                <AvatarImage src={session.user?.image || ""} alt={session.user?.name || "User"} />
+                <AvatarImage
+                  src={session.user?.image || ""}
+                  alt={session.user?.name || "User"}
+                />
                 <AvatarFallback>
                   <User className="h-12 w-12 text-[#114B5F]" />
                 </AvatarFallback>
@@ -167,7 +183,7 @@ export default function ProfilePageComponent() {
             >
               <Button
                 className="w-full bg-[#114B5F] text-white hover:bg-[#114B5F]/90"
-                onClick={() => router.push('/dashboard/store')}
+                onClick={() => router.push("/dashboard/store")}
               >
                 <ShoppingBag className="mr-2 h-5 w-5" />
                 Go to Store
@@ -190,12 +206,12 @@ export default function ProfilePageComponent() {
                 ) : (
                   <LogOut className="mr-2 h-5 w-5" />
                 )}
-                {isSigningOut ? 'Signing Out...' : 'Sign Out'}
+                {isSigningOut ? "Signing Out..." : "Sign Out"}
               </Button>
             </motion.div>
           </CardFooter>
         </Card>
       </motion.div>
     </div>
-  )
+  );
 }

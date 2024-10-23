@@ -171,7 +171,7 @@ export default function RegisterComponent() {
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
               />
             </div>
-            <div>
+            <div className="relative">
               <input
                 id="password"
                 name="password"
@@ -189,7 +189,7 @@ export default function RegisterComponent() {
                 {showPassword ? "Ocultar" : "Mostrar"}
               </button>
             </div>
-            <div>
+            <div className="relative">
               <input
                 id="confirm-password"
                 name="confirmPassword"

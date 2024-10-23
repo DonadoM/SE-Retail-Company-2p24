@@ -20,7 +20,14 @@ const UserSchema = new Schema({
     minLength: [3, "Full name must be at least 3 characters long"],
     maxLength: [128, "Full name must be at most 50 characters long"],
   },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
+    
+  },
 });
+
 
 const User = models.User || model("User", UserSchema);
 export default User;

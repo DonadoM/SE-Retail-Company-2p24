@@ -27,20 +27,20 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-neutral-100 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-blue-200 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/dashboard/store" className="flex-shrink">
               <Image
                 src="/logo.png"
                 alt="RetailCompany Logo"
-                width={40}
-                height={40}
+                width={45}
+                height={45}
               />
             </Link>
           </div>
-          <div className="hidden md:flex items-center justify-center flex-1">
+          <div className="hidden md:flex items-center justify-center flex-1 bg-blue-200">
             <div className="ml-10 flex items-baseline space-x-8">
               <NavLink href="/dashboard/store">Home</NavLink>
               <NavLink href="/shop">Shop</NavLink>
